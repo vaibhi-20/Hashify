@@ -1,0 +1,20 @@
+
+## 🚀 Quick Start
+
+```bash
+# 1. Clone & enter project
+git clone <your-repo> hashify
+cd hashify
+
+# 2. Setup virtual environment
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+# venv\Scripts\activate  # Windows
+
+# 3. Install dependencies
+pip install -r requirements.txt
+
+# 4. Run the app
+python app.py
+
+# Open http://127.0.0.1:5000/ - Enjoy your dark-themed Hashify dashboard! ✨
