@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Hashify</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">Hashify</div>
+    <input type="text" class="nav-search" placeholder="Search...">
+    <div class="nav-tabs">
+      <button data-tab="home">Home</button>
+      <button data-tab="hash-gen">Hash Generator</button>
+      <button data-tab="hash-id">Hash Identifier</button>
+      <button data-tab="hash-ver">Hash Verifier(soon)</button>
+      <button data-tab="crypto">Encrypt / Decrypt</button>
+      <button data-tab="about">About</button>
+      <button data-tab="contact">Contact</button>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Home -->
+    <section id="tab-home" class="tab active">
+      <h1>Welcome to Hashify</h1>
+      <p>Hashify is a cybersecurity utility for hashing, hash identification, verification, and cryptographic encryption/decryption of text and files.</p>
+      <p>Use it to explore one-way hashes and learn how modern encryption protects data at rest and in transit.</p>
+    </section>
+    <div class="hash-gif-full">
+  <img src="{{ url_for('static', filename='img/hashes.gif') }}" alt="Hash animation">
+</div>
+
+    <!-- Hash generator -->
+    <section id="tab-hash-gen" class="tab">
+      <h2>Hash Generator</h2>
+      <label>Algorithm:
+        <select id="hash-gen-algo">
+          <option>MD5</option>
+          <option>SHA256</option>
+          <option>SHA512</option>
+          <option>NTLM</option>
+        </select>
+      </label>
+
+      <textarea id="hash-gen-text" placeholder="Enter text here"></textarea>
+
+      <div class="drop-zone" id="hash-gen-drop">
+        <span>Drag &amp; drop file here or click to select</span>
+        <input type="file" id="hash-gen-file" hidden>
+      </div>
+
+      <button id="hash-gen-btn">Generate</button>
+      <p class="warning">Warning: Cryptographic hashes are one-way. Original data cannot be recovered from the hash.</p>
+
+      <div class="output">
+        <label>Hash output</label>
+        <textarea id="hash-gen-output" readonly></textarea>
+        <button class="copy-btn" data-target="hash-gen-output">Copy</button>
+      </div>
+    </section>
+
+    <!-- Hash identifier -->
+    <section id="tab-hash-id" class="tab">
+      <h2>Hash Identifier</h2>
+      <textarea id="hash-id-input" placeholder="Paste hash here"></textarea>
+      <button id="hash-id-btn">Identify</button>
+      <div class="output">
+        <label>Possible types</label>
+        <textarea id="hash-id-output" readonly></textarea>
+      </div>
+    </section>
+
+    <!-- Hash verifier -->
+   <!-- <section id="tab-hash-ver" class="tab">
+      <h2>Hash Verifier (soon)</h2>
+      <label>Algorithm:
+        <select id="hash-ver-algo">
+          <option>MD5</option>
+          <option>SHA256</option>
+          <option>SHA512</option>
+          <option>NTLM</option>
+          <option>CRC32</option>
+        </select>
+      </label>
+
+      <textarea id="hash-ver-text" placeholder="Enter text here"></textarea>
+
+      <div class="drop-zone" id="hash-ver-drop">
+        <span>Drag &amp; drop file here or click to select</span>
+        <input type="file" id="hash-ver-file" hidden>
+      </div>
+
+      <input type="text" id="hash-ver-expected" placeholder="Expected hash">
+      <button id="hash-ver-btn">Verify</button>
+
+      <div class="output">
+        <label>Result</label>
+        <textarea id="hash-ver-output" readonly></textarea>
+      </div>
+    </section> -->
+
+    <!-- Encrypt / Decrypt -->
+    <section id="tab-crypto" class="tab">
+      <h2>Encrypt / Decrypt</h2>
+
+      <div class="crypto-card">
+        <h3>Text</h3>
+        <label>Scheme:
+          <select id="crypto-text-scheme">
+            <option value="ROT13">ROT-13</option>
+            <option value="RAILFENCE">Rail Fence</option>
+          </select>
+        </label>
+        <input type="text" id="crypto-text-key" placeholder=" rails required (Rail Fence)">
+        <textarea id="crypto-text-input" placeholder="Enter text or ciphertext"></textarea>
+
+        <button id="crypto-text-encrypt">Encrypt</button>
+        <button id="crypto-text-decrypt">Decrypt</button>
+
+        <div class="output">
+          <label>Output</label>
+          <textarea id="crypto-text-output" readonly></textarea>
+          <button class="copy-btn" data-target="crypto-text-output">Copy</button>
+        </div>
+      </div>
+
+      <div class="crypto-card">
+        <h3>Image</h3>
+        <label>Scheme:
+          <select id="crypto-img-scheme">
+            <option value="AES">AES</option>
+          </select>
+        </label>
+        <input type="text" id="crypto-img-key" placeholder="Key (AES:16 bytes)">
+        <div class="drop-zone" id="crypto-img-drop">
+          <span>Drag &amp; drop image here or click to select</span>
+          <input type="file" id="crypto-img-file" hidden>
+        </div>
+        <button id="crypto-img-encrypt">Encrypt &amp; Download</button>
+        <button id="crypto-img-decrypt">Decrypt &amp; Download</button>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="tab-about" class="tab">
+      <h2>About Hashify</h2>
+      <p>Hashify demonstrates practical hashing and cryptography techniques for education and cybersecurity practice.</p>
+      <p>Use it to generate and verify hashes, identify common hash formats, and experiment with symmetric encryption and classic ciphers.</p>
+    </section>
+
+    <!-- Contact -->
+    <section id="tab-contact" class="tab">
+      <h2>Contact</h2>
+      <p>Developer: Vaibhav Malhotra</p>
+      <p>Phone: +91 9310459356</p>
+      <p>Email: vaibhav.25972@sscbs.du.ac.in</p>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
