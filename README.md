@@ -34,3 +34,4 @@ hashify/
 │ ├── js/main.js # ⚡ Tab switching & drag-drop
 │ └── img/hashes.gif # 🔄 Central animation
 
+## Future Features: Hash comparison tool, downloadable reports, light/dark toggle, hash verifier
