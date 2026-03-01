@@ -4,8 +4,8 @@
 
 ## ✨ Features
 
-- **🔐 Hash Generator** - Compute SHA-256, MD5, BLAKE2b, NTLM & more for text/files
-- **🔍 Hash Identifier** - Auto-detect hash algorithms from input strings  
+- **🔐 Hash Generator** - Compute SHA-256, MD5, NTLM & more for text/files
+- **🔍 Hash Identifier** - Auto-detect hash algorithms from input strings (commonly used- md5 sha256,sha512,NTLM) 
 - **✅ Hash Verifier** - Compare computed vs provided hashes for integrity
 - **🛡️ Encrypt/Decrypt** - AES, DES, ROT-13 ciphers with file support
 - **🖱️ Drag & Drop** - Intuitive single-page dark cybersecurity theme
